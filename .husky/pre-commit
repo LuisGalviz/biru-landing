@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "\033[1;36m🚨 Verificando calidad del código...\033[0m"
+
+echo "\033[1;34m🔍 Ejecutando ESLint...\033[0m"
+npm run lint || exit 1
+
+echo "\033[1;34m✨ Verificando formato con Prettier...\033[0m"
+npm run format || exit 1
+
+echo "\033[1;32m✅ Código limpio. Procediendo con el commit...\033[0m" 
