@@ -2,9 +2,14 @@
 import { SxProps, Theme } from '@mui/material';
 
 export const appBar: SxProps<Theme> = {
-  backgroundColor: 'white',
-  color: 'black',
-  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+  // background: transparent,
+  //     border-width: initial,
+  //     border-style: initial,
+  //     border-color: rgba(248, 248, 248, 0),
+  //     border-image: initial,
+  //     padding: 5px,
+  backgroundColor: 'transparent',
+  padding: 0.6,
 };
 
 export const toolbar: SxProps<Theme> = {
@@ -16,15 +21,20 @@ export const menuButton: SxProps<Theme> = {
     xs: 'flex',
     md: 'none',
   },
+  fontSize: '2rem',
 };
 
 export const title: SxProps<Theme> = {
-  flexGrow: 1,
   fontWeight: 'bold',
   textAlign: {
     xs: 'center',
     md: 'left',
   },
+  paddingLeft: {
+    xs: 0,
+    md: 5,
+  },
+  color: 'black',
 };
 
 export const navLinks: SxProps<Theme> = {
@@ -32,7 +42,17 @@ export const navLinks: SxProps<Theme> = {
     xs: 'none',
     md: 'flex',
   },
-  gap: 2,
+  gap: 1,
+};
+
+export const navButton: SxProps<Theme> = {
+  textTransform: 'none',
+  fontSize: '0.9rem',
+  color: 'fff',
+  '&:hover': {
+    backgroundColor: 'transparent',
+    color: '#e73131',
+  },
 };
 
 export const drawerContent: SxProps<Theme> = {
@@ -43,6 +63,4 @@ export const drawerContent: SxProps<Theme> = {
 export const langSwitcher: SxProps<Theme> = {
   display: 'flex',
   alignItems: 'center',
-  gap: 1,
-  marginLeft: 'auto',
 };

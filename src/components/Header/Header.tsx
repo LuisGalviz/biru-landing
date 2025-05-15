@@ -13,6 +13,7 @@ import {
   navLinks,
   drawerContent,
   langSwitcher,
+  navButton,
 } from './header.styles';
 import LanguageSwitcher from '../LanguageSwitcher';
 
@@ -39,12 +40,12 @@ const Header = ({ items }: HeaderProps) => {
           </IconButton>
 
           <Typography variant="h6" sx={title}>
-            Mi Sitio
+            LOGO
           </Typography>
 
           <Box sx={navLinks}>
             {items.map((item: { label: string; href: string }) => (
-              <Button key={item.label} href={item.href} component={Link} color="inherit">
+              <Button key={item.label} href={item.href} component={Link} sx={navButton}>
                 {item.label}
               </Button>
             ))}
