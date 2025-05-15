@@ -1,59 +1,73 @@
-// components/Header/header.styles.ts
 import { SxProps, Theme } from '@mui/material';
 
-export const appBar: SxProps<Theme> = {
-  backgroundColor: 'transparent',
-  padding: 0.6,
-  boxShadow: 'none',
-};
-
-export const toolbar: SxProps<Theme> = {
-  justifyContent: 'space-between',
-};
-
-export const menuButton: SxProps<Theme> = {
-  display: {
-    xs: 'flex',
-    md: 'none',
+export const styles: Record<string, SxProps<Theme>> = {
+  appBarBase: {
+    position: 'fixed',
+    padding: 0.6,
+    zIndex: 1300,
+    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
   },
-  fontSize: '2rem',
-};
 
-export const title: SxProps<Theme> = {
-  fontWeight: 'bold',
-  textAlign: {
-    xs: 'center',
-    md: 'left',
-  },
-  paddingLeft: {
-    xs: 0,
-    md: 5,
-  },
-};
-
-export const navLinks: SxProps<Theme> = {
-  display: {
-    xs: 'none',
-    md: 'flex',
-  },
-  gap: 1,
-};
-
-export const navButton: SxProps<Theme> = {
-  textTransform: 'none',
-  fontSize: '0.9rem',
-  '&:hover': {
+  appBarTransparent: {
     backgroundColor: 'transparent',
-    color: '#e73131',
+    color: '#fff',
+    boxShadow: 'none',
   },
-};
 
-export const drawerContent: SxProps<Theme> = {
-  width: 250,
-  padding: 2,
-};
+  appBarScrolled: {
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    color: '#fff',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+  },
 
-export const langSwitcher: SxProps<Theme> = {
-  display: 'flex',
-  alignItems: 'center',
+  toolbar: {
+    justifyContent: 'space-between',
+  },
+
+  menuButton: {
+    display: {
+      xs: 'flex',
+      md: 'none',
+    },
+    fontSize: '2rem',
+  },
+
+  title: {
+    fontWeight: 'bold',
+    textAlign: {
+      xs: 'center',
+      md: 'left',
+    },
+    paddingLeft: {
+      xs: 0,
+      md: 5,
+    },
+  },
+
+  navLinks: {
+    display: {
+      xs: 'none',
+      md: 'flex',
+    },
+    gap: 1,
+  },
+
+  navButton: {
+    textTransform: 'none',
+    fontSize: '0.9rem',
+    '&:hover': {
+      backgroundColor: 'transparent',
+      color: '#e73131',
+    },
+  },
+
+  drawerContent: {
+    width: 250,
+    padding: 2,
+  },
+
+  langSwitcher: {
+    display: 'flex',
+    alignItems: 'center',
+  },
 };
