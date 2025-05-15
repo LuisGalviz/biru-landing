@@ -32,7 +32,7 @@ export default async function RootLayout({
   params,
 }: {
   children: ReactNode;
-  params: { lng: string };
+  params: Promise<{ lng: string }>;
 }) {
   const { lng } = await params;
   return (
