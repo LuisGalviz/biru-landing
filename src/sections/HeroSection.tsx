@@ -1,13 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const HeroSection = () => {
+const HeroSection = ({ title }: { title: string }) => {
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="home">
       <div className="container">
-        <h1>Hero Section</h1>
+        <h1>{title}</h1>
       </div>
     </section>
   );
+};
+
+HeroSection.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default HeroSection;

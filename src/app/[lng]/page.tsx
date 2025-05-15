@@ -1,3 +1,4 @@
+import { getTranslation } from '@/i18n/getTranslation';
 import HeroSection from '@/sections/HeroSection';
 import AboutSection from '@/sections/AboutSection';
 import ServicesSection from '@/sections/ServicesSection';
@@ -10,12 +11,14 @@ import ContactSection from '@/sections/ContactSection';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: { lng: string } }) {
+  const { t } = await getTranslation(params.lng, 'common');
+
   return (
     <>
       <Header />
       <main>
-        <HeroSection />
+        <HeroSection title={t('hero_title')} />
         <AboutSection />
         <ServicesSection />
         <FeaturesSection />
