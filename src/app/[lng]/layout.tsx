@@ -27,13 +27,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { lng },
+  params,
 }: {
   children: ReactNode;
-  params: { lng: string };
+  params: Promise<{ lng: string }>;
 }) {
+  const { lng } = await params;
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

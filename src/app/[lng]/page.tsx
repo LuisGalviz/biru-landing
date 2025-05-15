@@ -11,8 +11,9 @@ import ContactSection from '@/sections/ContactSection';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-export default async function HomePage({ params }: { params: { lng: string } }) {
-  const { t } = await getTranslation(params.lng, 'common');
+export default async function HomePage({ params }: { params: Promise<{ lng: string }> }) {
+  const { lng } = await params;
+  const { t } = await getTranslation(lng, 'common');
   const items = t('navigation', { returnObjects: true }) as { label: string; href: string }[];
 
   return (
