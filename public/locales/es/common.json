@@ -1,0 +1,22 @@
+{
+  "hero_title": "Bienvenido a Nuestro Sitio",
+  "about_title": "Sobre Nosotros",
+  "contact_title": "Contáctanos",
+  "navigation": [
+    {"label": "Inicio", "href": "#"},
+    {"label": "Sobre", "href": "#about"},
+    {"label": "Servicios", "href": "#services"},
+    {"label": "Características", "href": "#features"},
+    {"label": "Portafolio", "href": "#portfolio"},
+    {"label": "Precios", "href": "#pricing"},
+    {"label": "Equipo", "href": "#team"},
+    {"label": "Blog", "href": "#blog"},
+    {"label": "Contáctanos", "href": "#contact"}
+  ], 
+  "footer": {
+    "terms": "Términos de Servicio",
+    "privacy": "Política de Privacidad",
+    "help": "Ayuda",
+    "contact": "Contáctanos"
+  }
+}
