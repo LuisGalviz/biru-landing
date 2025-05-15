@@ -12,8 +12,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export default async function HomePage({ params }: { params: { lng: string } }) {
-  const { lng } = await params;
-  const { t } = await getTranslation(lng, 'common');
+  const { t } = await getTranslation(params.lng, 'common');
   const items = t('navigation', { returnObjects: true }) as { label: string; href: string }[];
 
   return (
