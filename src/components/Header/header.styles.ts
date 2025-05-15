@@ -2,14 +2,9 @@
 import { SxProps, Theme } from '@mui/material';
 
 export const appBar: SxProps<Theme> = {
-  // background: transparent,
-  //     border-width: initial,
-  //     border-style: initial,
-  //     border-color: rgba(248, 248, 248, 0),
-  //     border-image: initial,
-  //     padding: 5px,
   backgroundColor: 'transparent',
   padding: 0.6,
+  boxShadow: 'none',
 };
 
 export const toolbar: SxProps<Theme> = {
@@ -34,7 +29,6 @@ export const title: SxProps<Theme> = {
     xs: 0,
     md: 5,
   },
-  color: 'black',
 };
 
 export const navLinks: SxProps<Theme> = {
@@ -48,7 +42,6 @@ export const navLinks: SxProps<Theme> = {
 export const navButton: SxProps<Theme> = {
   textTransform: 'none',
   fontSize: '0.9rem',
-  color: 'fff',
   '&:hover': {
     backgroundColor: 'transparent',
     color: '#e73131',
