@@ -1,6 +1,6 @@
 import { getTranslation } from '@/i18n/getTranslation';
-import HeroSection from '@/sections/HeroSection';
-import AboutSection from '@/sections/AboutSection';
+import HeroSection from '@/sections/Hero/HeroSection';
+import AboutSection from '@/sections/About/AboutSection';
 import ServicesSection from '@/sections/ServicesSection';
 import FeaturesSection from '@/sections/FeaturesSection';
 import PortfolioSection from '@/sections/PortfolioSection';
@@ -19,8 +19,9 @@ export default async function HomePage({ params }: { params: Promise<{ lng: stri
   return (
     <>
       <Header items={items} />
+      {/* <HeroSection title={t('hero_title')} /> */}
+      <HeroSection />
       <main>
-        <HeroSection title={t('hero_title')} />
         <AboutSection />
         <ServicesSection />
         <FeaturesSection />

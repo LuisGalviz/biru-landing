@@ -1,21 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { AppBar, Toolbar, IconButton, Typography, Drawer, Button, Box } from '@mui/material';
 import { Menu, X } from 'lucide-react';
-import {
-  appBar,
-  toolbar,
-  menuButton,
-  title,
-  navLinks,
-  drawerContent,
-  langSwitcher,
-  navButton,
-} from './header.styles';
+import { styles } from './header.styles';
 import LanguageSwitcher from '../LanguageSwitcher';
+import { getHeaderSx } from '@/utils/getHeaderSx';
 
 interface HeaderItem {
   label: string;
@@ -28,42 +19,52 @@ interface HeaderProps {
 
 const Header = ({ items }: HeaderProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <AppBar position="static" sx={appBar}>
-        <Toolbar sx={toolbar}>
-          <IconButton sx={menuButton} onClick={toggleDrawer(true)}>
+      <AppBar sx={getHeaderSx(scrolled)}>
+        <Toolbar sx={styles.toolbar}>
+          <IconButton sx={styles.menuButton} onClick={toggleDrawer(true)}>
             <Menu />
           </IconButton>
 
-          <Typography variant="h6" sx={title}>
+          <Typography variant="h6" sx={styles.title}>
             LOGO
           </Typography>
 
-          <Box sx={navLinks}>
-            {items.map((item: { label: string; href: string }) => (
-              <Button key={item.label} href={item.href} component={Link} sx={navButton}>
+          <Box sx={styles.navLinks}>
+            {items.map((item) => (
+              <Button key={item.label} href={item.href} component={Link} sx={styles.navButton}>
                 {item.label}
               </Button>
             ))}
           </Box>
-          <Box sx={langSwitcher}>
+
+          <Box sx={styles.langSwitcher}>
             <LanguageSwitcher />
           </Box>
         </Toolbar>
       </AppBar>
 
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-        <Box sx={drawerContent}>
+        <Box sx={styles.drawerContent}>
           <Box display="flex" justifyContent="flex-end">
             <IconButton onClick={toggleDrawer(false)}>
               <X />
             </IconButton>
           </Box>
-          {items.map((item: { label: string; href: string }) => (
+          {items.map((item) => (
             <Button
               key={item.label}
               component={Link}
@@ -78,15 +79,6 @@ const Header = ({ items }: HeaderProps) => {
       </Drawer>
     </>
   );
-};
-
-Header.prototypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default Header;
