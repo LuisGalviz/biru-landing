@@ -13,10 +13,11 @@ import Footer from '@/components/Footer';
 
 export default async function HomePage({ params }: { params: { lng: string } }) {
   const { t } = await getTranslation(params.lng, 'common');
+  const items = t('navigation', { returnObjects: true }) as { label: string; href: string }[];
 
   return (
     <>
-      <Header />
+      <Header items={items} />
       <main>
         <HeroSection title={t('hero_title')} />
         <AboutSection />

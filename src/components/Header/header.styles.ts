@@ -39,3 +39,10 @@ export const drawerContent: SxProps<Theme> = {
   width: 250,
   padding: 2,
 };
+
+export const langSwitcher: SxProps<Theme> = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 1,
+  marginLeft: 'auto',
+};

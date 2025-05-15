@@ -2,23 +2,30 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { AppBar, Toolbar, IconButton, Typography, Drawer, Button, Box } from '@mui/material';
 import { Menu, X } from 'lucide-react';
-import { appBar, toolbar, menuButton, title, navLinks, drawerContent } from './header.styles';
+import {
+  appBar,
+  toolbar,
+  menuButton,
+  title,
+  navLinks,
+  drawerContent,
+  langSwitcher,
+} from './header.styles';
+import LanguageSwitcher from '../LanguageSwitcher';
 
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Features', href: '#features' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Team', href: '#team' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
-];
+interface HeaderItem {
+  label: string;
+  href: string;
+}
 
-const Header = () => {
+interface HeaderProps {
+  items: HeaderItem[];
+}
+
+const Header = ({ items }: HeaderProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
@@ -36,11 +43,14 @@ const Header = () => {
           </Typography>
 
           <Box sx={navLinks}>
-            {navItems.map((item) => (
+            {items.map((item: { label: string; href: string }) => (
               <Button key={item.label} href={item.href} component={Link} color="inherit">
                 {item.label}
               </Button>
             ))}
+          </Box>
+          <Box sx={langSwitcher}>
+            <LanguageSwitcher />
           </Box>
         </Toolbar>
       </AppBar>
@@ -52,7 +62,7 @@ const Header = () => {
               <X />
             </IconButton>
           </Box>
-          {navItems.map((item) => (
+          {items.map((item: { label: string; href: string }) => (
             <Button
               key={item.label}
               component={Link}
@@ -67,6 +77,15 @@ const Header = () => {
       </Drawer>
     </>
   );
+};
+
+Header.prototypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Header;

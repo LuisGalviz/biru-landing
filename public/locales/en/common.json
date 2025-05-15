@@ -1,5 +1,22 @@
 {
   "hero_title": "Welcome to Our Site",
   "about_title": "About Us",
-  "contact_title": "Contact Us"
+  "contact_title": "Contact Us",
+  "navigation":[
+    {"label":"Home", "href":"#"},
+    {"label":"About", "href":"#about"},
+    {"label":"Services", "href":"#services"},
+    {"label":"Features", "href":"#features"},
+    {"label":"Portfolio", "href":"#portfolio"},
+    {"label":"Pricing", "href":"#pricing"},
+    {"label":"Team", "href":"#team"},
+    {"label":"Blog", "href":"#blog"},
+    {"label":"Contact", "href":"#contact"}
+  ],
+  "footer": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "help": "Help",
+    "contact": "Contact Us"
+  }
 }
