@@ -6,9 +6,9 @@ import { styles } from './heroSection.styles';
 import PropTypes from 'prop-types';
 
 const images = [
-  { label: 'Primera', src: '/images/slider/01.avif' },
-  { label: 'Segunda', src: '/images/slider/02.avif' },
-  { label: 'Tercera', src: '/images/slider/03.avif' },
+  { label: '', src: '/images/slider/01.avif' },
+  { label: '', src: '/images/slider/02.avif' },
+  { label: '', src: '/images/slider/03.avif' },
 ];
 
 // const HeroSection = ({ title }: { title: string }) => {
