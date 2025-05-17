@@ -10,7 +10,6 @@ export default function AboutSection() {
         <Typography variant="h3" sx={styles.title}>
           Sobre Nosotros
         </Typography>
-
         <Typography variant="body1" sx={styles.description}>
           Somos una empresa comprometida con la innovación y la excelencia. Nuestra misión es
           ofrecer soluciones impactantes que conecten a las personas con el futuro, combinando
